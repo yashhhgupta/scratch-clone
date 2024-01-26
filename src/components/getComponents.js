@@ -2,7 +2,7 @@ import React from "react";
 import Move from "./motion/Move";
 import TurnClockWise from "./motion/TurnClockwise";
 import TurnAntiClockwise from "./motion/TurnAntiClockwise";
-import GoToXY from "./motion/GoTo";
+import GoToXY from "./motion/GotoXY";
 import MoveY from "./motion/MoveY";
 
 // fetch components based on different keys

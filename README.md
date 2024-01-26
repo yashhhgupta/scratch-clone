@@ -43,14 +43,7 @@ Scratch Clone is a project aimed at replicating the fun and interactive motion f
 - React Redux
 - Tailwind CSS
 
-<!-- ## Screenshots
+## Screenshots
 
-![Screenshot 1](output/1.jpg)
-![Screenshot 2](output/2.jpg)
-![Screenshot 1](output/3.jpg)
-![Screenshot 2](output/4.jpg)
-
-## Deployment
-
-- Link : https://growwstonks-2qp9-yashhhgupta.vercel.app/
-- Deployed on Vercel -->
+![Screenshot 1](output1.jpg)
+![Screenshot 2](output2.gif)

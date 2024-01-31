@@ -1,12 +1,14 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 
 // Move Component for Sidebar
 const MoveY = ({ comp_id }) => {
   const [steps, setSteps] = useState(0);
+  const activeChar = useSelector((state) => state.mid.activeChar);
 
   // Function used for moiving Sprint in Y direction
   const handleClick = () => {
-    const el = document.getElementById("cat");
+    const el = document.getElementById(activeChar);
     var top = el.offsetTop;
     el.style.position = "relative";
     el.style.top = top + steps + "px";

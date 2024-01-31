@@ -8,12 +8,13 @@ const TurnAntiClockWise = ({ comp_id }) => {
   const [angle, setAngle] = useState(0);
   const dispatch = useDispatch();
 
-  const currAngle = useSelector((state) => state.mid.characterAngle);
+  const characters = useSelector((state) => state.mid.character);
+  const activeChar = useSelector((state) => state.mid.activeChar);
   // handle anti-clockwise rotation
   const handleClick = () => {
     let anti_angle = -1 * angle;
-    const el = document.getElementById("cat");
-
+    const el = document.getElementById(activeChar);
+    let currAngle = characters.find((x) => x.id === activeChar).angle;
     el.style.transform = `rotate(${currAngle + anti_angle}deg)`;
     dispatch(midActions.changeAngle(currAngle + anti_angle));
   };

@@ -8,10 +8,12 @@ const TurnClockWise = ({ comp_id }) => {
   const [angle, setAngle] = useState(0);
   const dispatch = useDispatch();
 
-  const currAngle = useSelector((state) => state.mid.characterAngle);
+  const characters = useSelector((state) => state.mid.character);
+  const activeChar = useSelector((state) => state.mid.activeChar);
   // handle turn clockwise component
   const handleClick = () => {
-    const el = document.getElementById("cat");
+    const el = document.getElementById(activeChar);
+    let currAngle = characters.find((x) => x.id === activeChar).angle;
     el.style.transform = `rotate(${currAngle + angle}deg)`;
     dispatch(midActions.changeAngle(currAngle + angle));
   };

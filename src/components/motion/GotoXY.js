@@ -1,6 +1,9 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 
 const GotoXY = ({ comp_id }) => {
+  const activeChar = useSelector((state) => state.mid.activeChar);
+
   const [state, setState] = useState({
     goto_x: 0,
     goto_y: 0,
@@ -8,7 +11,7 @@ const GotoXY = ({ comp_id }) => {
 
   // go to posiiton X and Y
   const gotoXY = () => {
-    const el = document.getElementById("cat");
+    const el = document.getElementById(activeChar);
     el.style.position = "relative";
     el.style.left = state.goto_x + "px";
     el.style.top = state.goto_y + "px";

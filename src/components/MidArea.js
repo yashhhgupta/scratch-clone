@@ -7,6 +7,7 @@ import { Draggable, Droppable } from "react-beautiful-dnd";
 
 export default function MidArea() {
   const data = useSelector((state) => state.mid.midList);
+  const activeCharacter = useSelector((state) => state.mid.activeChar);
   const dispatch = useDispatch();
   const eventFire = (el, etype) => {
     if (el && el.fireEvent) {
@@ -18,15 +19,23 @@ export default function MidArea() {
     }
   };
   const onRunButtonClick = () => {
-    let string = "";
-    data.forEach((x) => {
+    let string = "On " + activeCharacter + " :- ";
+    let completedEvents = 0;
+    data.forEach((x, i) => {
       let str = x.split("-")[0];
       let id = x.split("-")[1];
       let el = document.getElementById(`${str}+${id}`);
-      eventFire(el, "click");
-      string = string + " -> " + str;
+      setTimeout(() => {
+        eventFire(el, "click");
+        if (completedEvents === 0) string = string + str;
+        else string = string + " -> " + str;
+        completedEvents++;
+        if (completedEvents === data.length) {
+          console.log(string, data.length);
+          dispatch(midActions.addInHistory(string));
+        }
+      }, i * 500);
     });
-    dispatch(midActions.addInHistory(string));
   };
   const onEmptyList = () => {
     dispatch(midActions.emptyEventList());

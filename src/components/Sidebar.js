@@ -27,7 +27,7 @@ export default function Sidebar() {
           <div {...provided.droppableProps} ref={provided.innerRef}>
             {motionHelperList.map((x, i) => {
               return (
-                <Draggable draggableId={x} index={i} type="COMPONENT">
+                <Draggable draggableId={x} index={i} type="COMPONENT" key={i}>
                   {(provided) => (
                     <div
                       {...provided.draggableProps}

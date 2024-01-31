@@ -1,13 +1,13 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 
-// Move Component for Sidebar
 const Move = (props) => {
   const { comp_id } = props;
   const [steps, setSteps] = useState(0);
+  const activeChar = useSelector((state) => state.mid.activeChar);
 
-  // Function used for moiving Sprint
   const handleClick = () => {
-    const el = document.getElementById("cat");
+    const el = document.getElementById(activeChar);
     var left = el.offsetLeft;
     el.style.position = "relative";
     el.style.left = left + steps + "px";
